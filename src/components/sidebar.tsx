@@ -1,7 +1,7 @@
 import { getData } from '@/apis';
 import Link from 'next/link';
 import React from 'react'
-interface Props {
+export interface Props {
     id?: string;
     name?: string;
     description?: string;
@@ -11,6 +11,7 @@ const SideBar = async () => {
     const genres = await getData("/genres")
     .then((res) => res)
     .catch((err) => console.log(err));
+    
   return (
     <>
         <aside
