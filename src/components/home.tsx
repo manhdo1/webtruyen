@@ -1,19 +1,12 @@
 import * as React from 'react';
-import {  getData } from '@/apis';
-import Header from './header';
-import Sidebar from './sidebar';
-export interface IHomeProps {
-}
+import Trending from './trending';
+import Main from './main';
 
-const Home = (props: IHomeProps) => {
-    // getData('/recommend-comics')
+
+const Home = () => {
   return (
     <>
-    
-      <Header/>
-     
-      <Sidebar/>
-   
+      <Trending/>
     </>
   );
 }
