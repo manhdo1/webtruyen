@@ -1,5 +1,6 @@
 "use client";
 import { getData } from "@/apis";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 interface PropsTrending {
@@ -24,12 +25,14 @@ export default function ComicTrendings() {
       {trending?.map((item: PropsTrending) => {
         return (
           <div className="group relative" key={item.id}>
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[50%]">
-              <img
+            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[70%]">
+              <Image
                 loading="lazy"
                 src={item.thumbnail}
                 alt={item.id}
                 className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                width={500}
+                height={500}
               />
             </div>
             <div className="mt-4 flex justify-between">
@@ -40,7 +43,7 @@ export default function ComicTrendings() {
                   >
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 "
+                      className="absolute inset-0"
                     ></span>
                     {item.title}
                   </a>

@@ -43,18 +43,18 @@ const PageTheLoai = async ({ params }: PropsParam) => {
     }
   return (
     <div className="bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
+      <div className="mt-10 sm:mt-0 mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {nameTitle}
         </h2>
         <p className="tracking-tight text-gray-900 dark:text-white">
           {description}
         </p>
-        <div className="mt-6 grid grid-cols-1 gap-y-2 lg:gap-x-4 sm:grid-cols-2 lg:grid-cols-4 ">
+        <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 xl:gap-x-8">
           {theLoai.comics.map((item: TheLoaiData) => {
             return (
                 <div className="group relative" key={item.id}>
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[50%]">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-[50%]">
                   <img
                     src={item.thumbnail}
                     alt="anh"
@@ -80,7 +80,7 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                     <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
                       Lượt xem: {item.total_views}
                     </p>
-                    <p className="mt-1 text-sm text-gray-700 dark:text-white">
+                    <p className="mt-1 text-xs font-semibold text-gray-900 dark:text-white">
                       Chap mới nhất: {item.lastest_chapters[0].name}
                     </p>
                   </div>

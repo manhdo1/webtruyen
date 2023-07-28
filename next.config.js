@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'comics-api.vercel.app',
+            hostname: '**',
             port: '',
             pathname: '/**',
           },
