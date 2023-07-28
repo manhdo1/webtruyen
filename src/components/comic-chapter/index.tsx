@@ -25,17 +25,17 @@ export default  function ComicChapters({ param }: IComicChaptersProps) {
   },[chapterId, comicId])
   
   return (
-    <div className="grid grid-cols-1 gap-4 mt-20">
-      <div className="justify-center">
+    <div className="grid grid-cols-1 gap-4">
+      <div className="justify-self-center">
         {chaptersImg?.images.map((item: ChaptersImg) => {
           return (
             <>
               <Image
-                className="max-w-3xl h-auto"
+                className="max-w-4xl h-auto"
                 src={item.src}
                 alt="img chapter"
-                width={1000}
-                height={1000}
+                width={900}
+                height={700}
                 loading="lazy"
               />
             </>

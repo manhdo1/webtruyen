@@ -5,7 +5,7 @@ export interface IHeaderProps {}
 
 const Header = (props: IHeaderProps) => {
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed z-20 w-full">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 z-20 w-full">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center">
           {/* <img
