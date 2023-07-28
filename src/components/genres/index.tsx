@@ -40,12 +40,12 @@ const PageTheLoai = async ({ params }: PropsParam) => {
         description = foundItem.description;
     }
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {nameTitle}
         </h2>
-        <p className="tracking-tight text-gray-900">
+        <p className="tracking-tight text-gray-900 dark:text-white">
           {description}
         </p>
         <div className="mt-6 grid grid-cols-1 gap-y-2 lg:gap-x-4 sm:grid-cols-2 lg:grid-cols-4 ">
@@ -61,7 +61,7 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-sm text-gray-700">
+                    <h3 className="text-sm text-gray-700 ">
                       <a href="#">
                         <span
                           aria-hidden="true"
@@ -74,10 +74,10 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                       Cập nhật: {item.updated_at}
                     </p>
                     
-                    <p className="mt-1 text-sm text-gray-700">
+                    <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
                       Lượt xem: {item.total_views}
                     </p>
-                    <p className="mt-1 text-sm text-gray-700">
+                    <p className="mt-1 text-sm text-gray-700 dark:text-white">
                       Chap mới nhất: {item.lastest_chapters[0].name}
                     </p>
                   </div>

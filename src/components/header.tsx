@@ -1,4 +1,5 @@
 import * as React from "react";
+import ToogleDarkMode from "./input-switch/toggle-button";
 
 export interface IHeaderProps {}
 
@@ -81,6 +82,9 @@ const Header = (props: IHeaderProps) => {
               >
                 Login
               </a>
+            </li>
+            <li>
+              <ToogleDarkMode/>
             </li>
             
             

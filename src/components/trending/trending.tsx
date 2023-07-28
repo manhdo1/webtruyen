@@ -19,9 +19,9 @@ const Trending = async () => {
     .catch((err) => err);
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Đề cử
           </h2>
 
@@ -42,7 +42,7 @@ const Trending = async () => {
                         <a href="#">
                           <span
                             aria-hidden="true"
-                            className="absolute inset-0"
+                            className="absolute inset-0 "
                           ></span>
                           {item.title}
                         </a>
@@ -50,7 +50,7 @@ const Trending = async () => {
                       <p className="mt-1 text-sm text-gray-500">
                         {item.updated_at}
                       </p>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">
                         {item.lastest_chapter.name}
                       </p>
                     </div>
@@ -58,8 +58,6 @@ const Trending = async () => {
                 </div>
               );
             })}
-
-            {/* <!-- More products... --> */}
           </div>
         </div>
       </div>

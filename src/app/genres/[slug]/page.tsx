@@ -1,9 +1,11 @@
 import PageTheLoai from '@/components/genres'
 import React from 'react'
 
-type Props = {}
+type Props = {
+  params: { slug: string }
+}
 
-const GenresPage = ({ params }: { params: { slug: string } }) => {
+const GenresPage = ({ params }: Props) => {
   return (
     <>
         <PageTheLoai params={params.slug}/>
