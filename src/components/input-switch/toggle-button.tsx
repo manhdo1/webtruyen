@@ -7,7 +7,6 @@ export default function ToogleDarkMode() {
   const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
   const changeTheme = () => {
-    console.log(theme);
     theme && theme == "dark" ? setTheme("light") : setTheme("dark");
   };
   React.useEffect(() => {
@@ -20,7 +19,7 @@ export default function ToogleDarkMode() {
   return (
     <>
       <label className="switch">
-        <input type="checkbox" onClick={changeTheme} />
+        <input type="checkbox" defaultChecked={theme == 'light' ? true : false} onClick={changeTheme} />
         <span className="slider"></span>
       </label>
     </>

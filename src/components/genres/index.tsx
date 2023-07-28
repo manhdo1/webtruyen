@@ -26,9 +26,11 @@ interface TheLoaiData {
   ]
 }
 const PageTheLoai = async ({ params }: PropsParam) => {
+  //render ra the loai
   const theLoai = await getData(`/genres/${params}`)
     .then((res) => res)
     .catch((err) => console.log(err));
+    //lấy thông tin title
   const genres = await getData("/genres")
     .then((res) => res)
     .catch((err) => console.log(err));
@@ -56,13 +58,14 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                   <img
                     src={item.thumbnail}
                     alt="anh"
+                    loading="lazy"
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700 ">
-                      <a href="#">
+                      <a href={`/comic-chapter/${item.id}/chapters/${item.lastest_chapters[0].id}`}>
                         <span
                           aria-hidden="true"
                           className="absolute inset-0"
