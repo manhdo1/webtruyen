@@ -1,5 +1,5 @@
 import React from "react";
-import Trending from "./trending";
+import Trending from "./trending/trending";
 import SideBar from "./sidebar";
 const Main = async ({
   children,

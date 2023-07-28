@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Trending from './trending';
+import Trending from './trending/trending';
 import Main from './main';
 
 

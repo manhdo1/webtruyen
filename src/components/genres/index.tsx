@@ -29,7 +29,7 @@ const PageTheLoai = async ({ params }: PropsParam) => {
   const theLoai = await getData(`/genres/${params}`)
     .then((res) => res)
     .catch((err) => console.log(err));
-const genres = await getData("/genres")
+  const genres = await getData("/genres")
     .then((res) => res)
     .catch((err) => console.log(err));
     const foundItem = genres.find((item:Props) => item.id === params);
