@@ -14,7 +14,7 @@ const Trending =  () => {
             Đề cử
           </h2>
           <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 xl:gap-x-8">
-            {/* <ComicTrendings/> */}
+            <ComicTrendings/>
           </div>
         </div>
         <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
