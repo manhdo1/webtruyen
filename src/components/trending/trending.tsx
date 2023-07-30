@@ -2,6 +2,7 @@
 
 import React from "react";
 import ComicTrendings from "./comic-trending";
+import ComicNews from "./comic-news";
 
 const Trending =  () => {
   
@@ -13,7 +14,15 @@ const Trending =  () => {
             Đề cử
           </h2>
           <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 xl:gap-x-8">
-            <ComicTrendings/>
+            {/* <ComicTrendings/> */}
+          </div>
+        </div>
+        <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Truyện mới
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-6">
+            <ComicNews/>
           </div>
         </div>
       </div>

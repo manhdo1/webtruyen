@@ -53,3 +53,8 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* xóa css của thẻ a */
+a .resetCss {
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+}

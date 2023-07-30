@@ -3,7 +3,7 @@ import { getData } from "@/apis";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-interface PropsTrending {
+export interface PropsTrending {
   id: string;
   title: string;
   thumbnail: string;
