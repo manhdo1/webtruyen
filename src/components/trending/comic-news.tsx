@@ -57,19 +57,19 @@ export default async function ComicNews() {
                 <span className="mr-1 text-sm">Thể loại:</span>
                 {item.genres.map((item) => {
                   return item.name ? (
-                    <a key={item.id} href="#">
+                    <Link key={item.id} href={`/genres/${item.id}`}>
                       <TagTheLoai name={item.name} />
-                    </a>
+                    </Link>
                   ) : null;
                 })}
               </div>
               <div className="flex items-center flex-wrap">
                 <span className="mr-1 text-sm">Chap mới nhất: </span>
-                {item.lastest_chapters.map((item) => {
+                {item.lastest_chapters.map((chapter) => {
                   return (
-                    <a key={item.id} href="#">
-                      <TagChapter name={item.name} />
-                    </a>
+                    <Link key={chapter.id} href={`/comic-chapter/${item.id}/chapters/${chapter.id}`}>
+                      <TagChapter name={chapter.name} />
+                    </Link>
                   );
                 })}
               </div>

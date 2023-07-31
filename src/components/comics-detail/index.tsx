@@ -4,6 +4,7 @@ import Image from "next/image";
 import * as React from "react";
 import TagTheLoai from "../tag/the-loai";
 import { StartIcon } from "../icons/start-icon";
+import Link from "next/link";
 
 export interface IComicDetailProps {
   title: string;
@@ -49,7 +50,7 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
               loading="lazy"
               className="object-cover w-full h-96 p-6 md:p-0 md:h-full rounded-lg md:w-48"
               src={ComicDetail.thumbnail}
-              alt={"item.id"}
+              alt={ComicDetail.id}
               width={500}
               height={500}
             />
@@ -61,9 +62,9 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
                 <span className="mr-1 text-sm">Thể loại:</span>
                 {ComicDetail.genres.map((item) => {
                   return item.name ? (
-                    <a key={item.id} href="#">
+                    <Link key={item.id} href={`/genres/${item.id}`}>
                       <TagTheLoai name={item.name} />
-                    </a>
+                    </Link>
                   ) : null;
                 })}
               </div>
