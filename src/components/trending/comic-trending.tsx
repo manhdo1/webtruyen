@@ -40,7 +40,7 @@ export default function ComicTrendings() {
               <div>
                 <h3 className="text-sm text-gray-700">
                   <Link
-                    href={`/comic-chapter/${item.id}/chapters/${item.lastest_chapter.id}`}
+                    href={`/comic-detail/${item.id}`}
                   >
                     <span
                       aria-hidden="true"

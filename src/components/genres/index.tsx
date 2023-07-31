@@ -2,6 +2,7 @@ import { getData } from "@/apis";
 import React from "react";
 import { Props } from "../sidebar";
 import Pagination from "../pagination";
+import Link from "next/link";
 
 type PropsParam = {
     params: string;
@@ -66,13 +67,13 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700 ">
-                      <a href={`/comic-chapter/${item.id}/chapters/${item.lastest_chapters[0].id}`}>
+                      <Link href={`/comic-detail/${item.id}`}>
                         <span
                           aria-hidden="true"
                           className="absolute inset-0"
                         ></span>
                         {item.title}
-                      </a>
+                      </Link>
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">
                       Cập nhật: {item.updated_at}

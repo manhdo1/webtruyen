@@ -58,3 +58,10 @@ a .resetCss {
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
 }
+select:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  appearance: none;
+  outline: none;
+  border: 1px solid lightgreen;
+}

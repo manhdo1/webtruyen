@@ -38,7 +38,7 @@ export default async function ComicNews() {
         return (
           <Link
             key={item.id}
-            href="#"
+            href={`/comic-detail/${item.id}`}
             className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <Image
