@@ -47,7 +47,7 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
           <div className="flex flex-col items-center bg-white  rounded-lg  md:flex-row   dark:bg-gray-800 ">
             <Image
               loading="lazy"
-              className="object-cover w-full h-full rounded-lg md:w-48"
+              className="object-cover w-full h-96 p-6 md:p-0 md:h-full rounded-lg md:w-48"
               src={ComicDetail.thumbnail}
               alt={"item.id"}
               width={500}
@@ -94,13 +94,13 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
               <div className="flex">
                 <button
                   type="button"
-                  className="w-fit text-gray-900 bg-white border border-gray-300  hover:bg-gray-100   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  className="w-fit truncate text-gray-900 bg-white border border-gray-300  hover:bg-gray-100   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
                   Đọc từ đầu
                 </button>
                 <button
                   type="button"
-                  className="w-fit text-white bg-green-700 hover:bg-green-800   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                  className="w-fit truncate text-white bg-green-700 hover:bg-green-800   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   Đọc chap mới nhất
                 </button>
