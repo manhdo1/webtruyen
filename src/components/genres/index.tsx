@@ -1,6 +1,7 @@
 import { getData } from "@/apis";
 import React from "react";
 import { Props } from "../sidebar";
+import Pagination from "../pagination";
 
 type PropsParam = {
     params: string;
@@ -90,6 +91,7 @@ const PageTheLoai = async ({ params }: PropsParam) => {
           })}
         </div>
       </div>
+      <Pagination pagination={theLoai}/>
     </div>
   );
 };

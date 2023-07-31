@@ -3,6 +3,7 @@ import * as React from "react";
 import { PropsTrending } from "./comic-trending";
 import Image from "next/image";
 import Pagination from "../pagination";
+import Link from "next/link";
 
 export interface INewComicsProps extends PropsTrending {
   short_description: string;
@@ -33,14 +34,14 @@ export default async function ComicNews() {
     <>
       {newComicsArr.map((item: INewComicsProps) => {
         return (
-          <a
+          <Link
             key={item.id}
             href="#"
             className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <Image
               loading="lazy"
-              className="object-cover w-full h-[200px] md:h-full rounded-t-lg md:w-48 md:rounded-none md:rounded-l-lg"
+              className="object-cover w-full h-[200px] md:h-full rounded-t-lg md:w-40 md:rounded-none md:rounded-l-lg"
               src={item.thumbnail}
               alt={item.id}
               width={500}
@@ -54,11 +55,13 @@ export default async function ComicNews() {
                 <span className="mr-1 text-sm">Thể loại:</span>
                 {item.genres.map((item) => {
                   return (
+                    item.name ? 
                     <a key={item.id} href="#">
                       <span className="resetCss my-1 flex items-center w-fit truncate bg-red-100 text-red-800 hover:text-red-400 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 dark:hover:text-red-500">
                         {item.name}
                       </span>
                     </a>
+                    : null
                   );
                 })}
               </div>
@@ -76,17 +79,17 @@ export default async function ComicNews() {
               </div>
 
               <span className="text-sm">Lượt xem: {item.total_views}</span>
-              <p className="mt-1 text-sm">{item.updated_at}</p>
+              <p className="mt-1 text-sm">Cập nhật: {item.updated_at}</p>
               <p className="hidden md:block mt-1 font-normal text-xs text-gray-700 dark:text-gray-400">
                 {item.short_description == ""
                   ? "Updating..."
                   : item.short_description}
               </p>
             </div>
-          </a>
+          </Link>
         );
       })}
-      <Pagination/>
+      <Pagination pagination={newComics}/>
     </>
   );
 }

@@ -11,7 +11,6 @@ const SideBar = async () => {
     const genres = await getData("/genres")
     .then((res) => res)
     .catch((err) => console.log(err));
-    
   return (
     <>
         <aside
@@ -22,7 +21,7 @@ const SideBar = async () => {
         <h1 className='text-center font-bold border-b-2'>Thể loại</h1>
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            {genres.map((item: Props) => {
+            {genres?.map((item: Props) => {
               return (
                 <li key={item.id}>
                   <Link

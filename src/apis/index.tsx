@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'https://comics-api.vercel.app',
+    baseURL: 'http://localhost:8080',
 });
 
 export const getData = async (url:string,option = {}) => {

@@ -1,6 +1,7 @@
 "use client";
 import { getData } from "@/apis";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export interface PropsTrending {
@@ -38,7 +39,7 @@ export default function ComicTrendings() {
             <div className="mt-4 flex justify-between">
               <div>
                 <h3 className="text-sm text-gray-700">
-                  <a
+                  <Link
                     href={`/comic-chapter/${item.id}/chapters/${item.lastest_chapter.id}`}
                   >
                     <span
@@ -46,7 +47,7 @@ export default function ComicTrendings() {
                       className="absolute inset-0"
                     ></span>
                     {item.title}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{item.updated_at}</p>
                 <p className="text-sm font-medium text-gray-900 dark:text-white">
