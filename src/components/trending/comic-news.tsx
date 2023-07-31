@@ -4,6 +4,8 @@ import { PropsTrending } from "./comic-trending";
 import Image from "next/image";
 import Pagination from "../pagination";
 import Link from "next/link";
+import TagTheLoai from "../tag/the-loai";
+import TagChapter from "../tag/chapter";
 
 export interface INewComicsProps extends PropsTrending {
   short_description: string;
@@ -54,15 +56,11 @@ export default async function ComicNews() {
               <div className="flex items-center flex-wrap">
                 <span className="mr-1 text-sm">Thể loại:</span>
                 {item.genres.map((item) => {
-                  return (
-                    item.name ? 
+                  return item.name ? (
                     <a key={item.id} href="#">
-                      <span className="resetCss my-1 flex items-center w-fit truncate bg-red-100 text-red-800 hover:text-red-400 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 dark:hover:text-red-500">
-                        {item.name}
-                      </span>
+                      <TagTheLoai name={item.name} />
                     </a>
-                    : null
-                  );
+                  ) : null;
                 })}
               </div>
               <div className="flex items-center flex-wrap">
@@ -70,9 +68,7 @@ export default async function ComicNews() {
                 {item.lastest_chapters.map((item) => {
                   return (
                     <a key={item.id} href="#">
-                      <span className="resetCss my-1 flex items-center mt-1 bg-purple-100 text-purple-800 hover:text-purple-400 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300 dark:hover:text-purple-500">
-                        {item.name}
-                      </span>
+                      <TagChapter name={item.name} />
                     </a>
                   );
                 })}
@@ -89,7 +85,7 @@ export default async function ComicNews() {
           </Link>
         );
       })}
-      <Pagination pagination={newComics}/>
+      <Pagination pagination={newComics} />
     </>
   );
 }
