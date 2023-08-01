@@ -59,7 +59,7 @@ const PageTheLoai = async ({ params }: PropsParam) => {
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-[50%]">
                   <img
                     src={item.thumbnail}
-                    alt="anh"
+                    alt={item.id}
                     loading="lazy"
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />

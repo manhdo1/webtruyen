@@ -5,6 +5,7 @@ import * as React from "react";
 import TagTheLoai from "../tag/the-loai";
 import { StartIcon } from "../icons/start-icon";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export interface IComicDetailProps {
   title: string;
@@ -34,13 +35,23 @@ export interface IComicDetailProps {
 }
 
 export default function ComicDetail({ params }: { params: { slug: string } }) {
+  const router = useRouter();
   const [ComicDetail, setComicDetail] = React.useState<IComicDetailProps>();
   React.useEffect(() => {
     getData(`/comics/${params.slug}`)
       .then((res) => setComicDetail(res))
       .catch((err) => console.log(err));
   }, [params.slug]);
-
+  const firstChapter = ComicDetail?.chapters[ComicDetail.chapters.length - 1]
+  
+  const newChapter = ComicDetail?.chapters[0]
+  
+  const readFirstChapter = () => {
+    router.push(`/comic-chapter/${ComicDetail?.id}/chapters/${firstChapter?.id}`)
+  }
+  const readNewChapter = () => {
+    router.push(`/comic-chapter/${ComicDetail?.id}/chapters/${newChapter?.id}`)
+  }
   return (
     <>
       {ComicDetail && (
@@ -78,7 +89,6 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
               </p>
               <p className="mt-1 text-sm">Tác giả: {ComicDetail.authors}</p>
               <p className="mt-1 text-sm">Trạng thái: {ComicDetail.status}</p>
-              {/* <p className="mt-1 text-sm">Tên khác: {ComicDetail.status}</p> */}
               <div className="flex items-center my-1">
                 <StartIcon />
                 <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
@@ -94,6 +104,7 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
               </div>
               <div className="flex">
                 <button
+                  onClick={readFirstChapter}
                   type="button"
                   className="w-fit truncate text-gray-900 bg-white border border-gray-300  hover:bg-gray-100   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
@@ -101,6 +112,7 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
                 </button>
                 <button
                   type="button"
+                  onClick={readNewChapter}
                   className="w-fit truncate text-white bg-green-700 hover:bg-green-800   font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   Đọc chap mới nhất
@@ -125,11 +137,10 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
             >
               {ComicDetail.chapters.map((item) => {
                 return (
-                  <>
-                    <option className="py-2 rounded-sm text-sm border-b-2 cursor-pointer" value={item.id}>
+                    <option key={item.id} className="py-2 rounded-sm text-sm border-b-2 cursor-pointer" value={item.id}>
                       {item.name}
                     </option>
-                  </>
+                  
                 );
               })}
             </select>
