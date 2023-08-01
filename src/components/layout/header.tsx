@@ -1,5 +1,6 @@
 import * as React from "react";
 import ToogleDarkMode from "@/components/input-switch/toggle-button";
+import Link from "next/link";
 
 export interface IHeaderProps {}
 
@@ -7,7 +8,7 @@ const Header = (props: IHeaderProps) => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 z-20 w-full">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           {/* <img
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8 mr-3"
@@ -16,7 +17,7 @@ const Header = (props: IHeaderProps) => {
           <span className="text-gadient self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Thỏ Comic
           </span>
-        </a>
+        </Link>
         <form>
                 
                 <div className="relative">

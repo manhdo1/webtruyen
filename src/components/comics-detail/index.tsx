@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { getData } from "@/apis";
 import Image from "next/image";
 import * as React from "react";
@@ -42,16 +42,24 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
       .then((res) => setComicDetail(res))
       .catch((err) => console.log(err));
   }, [params.slug]);
-  const firstChapter = ComicDetail?.chapters[ComicDetail.chapters.length - 1]
-  
-  const newChapter = ComicDetail?.chapters[0]
-  
+  const firstChapter = ComicDetail?.chapters[ComicDetail.chapters.length - 1];
+
+  const newChapter = ComicDetail?.chapters[0];
+  const redirectPage = (
+    comicId: string | undefined,
+    chapterId: number | undefined| string
+  ) => {
+    router.push(`/comic-chapter/${comicId}/chapters/${chapterId}`);
+  };
   const readFirstChapter = () => {
-    router.push(`/comic-chapter/${ComicDetail?.id}/chapters/${firstChapter?.id}`)
-  }
+    redirectPage(ComicDetail?.id, firstChapter?.id);
+  };
   const readNewChapter = () => {
-    router.push(`/comic-chapter/${ComicDetail?.id}/chapters/${newChapter?.id}`)
-  }
+    redirectPage(ComicDetail?.id, newChapter?.id);
+  };
+  const enterChapter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    redirectPage(ComicDetail?.id, e.target.value);
+  };
   return (
     <>
       {ComicDetail && (
@@ -131,16 +139,20 @@ export default function ComicDetail({ params }: { params: { slug: string } }) {
               Danh sách chương
             </label>
             <select
+              onChange={enterChapter}
               size={5}
               id="countries"
               className="bg-gray-50 border  focus:outline-none border-gray-300 text-gray-900 text-sm rounded-lg   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  "
             >
               {ComicDetail.chapters.map((item) => {
                 return (
-                    <option key={item.id} className="py-2 rounded-sm text-sm border-b-2 cursor-pointer" value={item.id}>
-                      {item.name}
-                    </option>
-                  
+                  <option
+                    key={item.id}
+                    className="py-2 rounded-sm text-sm border-b-2 cursor-pointer"
+                    value={item.id}
+                  >
+                    {item.name}
+                  </option>
                 );
               })}
             </select>
